@@ -83,84 +83,86 @@ export function AnimatedHero() {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 px-4 sm:px-6 lg:px-8"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto text-center">
+      {/* Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[30%] h-[30%] bg-accent/15 rounded-full blur-[100px] animate-pulse delay-700" />
+      </div>
+
+      <div className="max-w-5xl mx-auto text-center relative z-10">
         <div
           ref={badgeRef}
-          className="inline-block mb-6 px-3 py-1 rounded-full bg-accent/10 border border-accent/20"
+          className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md"
         >
-          <span className="text-sm font-medium text-accent">
-            100% Offline • No Cloud • Full Privacy
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
+          <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+            100% Offline • No Cloud Required
           </span>
         </div>
 
         <h1
           ref={titleRef}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance"
+          className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight text-balance leading-[1.1]"
         >
-          Your Notes, Reimagined
+          Own Your Thoughts.{" "}
+          <span className="bg-linear-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
+            Private by Design.
+          </span>
         </h1>
 
         <p
           ref={descRef}
-          className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance"
+          className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto text-balance leading-relaxed"
         >
-          Powerful on-device AI for smarter thinking. Generate, summarize, chat
-          with your thoughts all offline, all private.
+          Powerful on-device AI for smarter thinking. Generate, summarize, and chat
+          with your notes locally. Your data never leaves your device.
         </p>
 
         <div
           ref={buttonsRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-6 justify-center mb-20"
         >
-          <Button asChild variant="accent" size="xl">
+          <Button asChild variant="gradient" size="xl" className="group h-14 px-10 text-lg shadow-primary/25">
             <Link
               href={PLAY_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
               Get Early Access
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" size="xl">
+              <Button variant="outline" size="xl" className="h-14 px-10 text-lg border-border/50 hover:border-primary/50 backdrop-blur-sm">
                 Watch Demo
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-5xl w-full p-6 bg-background border-border">
+            <DialogContent className="max-w-5xl w-full p-6 bg-background/95 backdrop-blur-xl border-border/50">
               <DialogTitle className="sr-only">Watch Demo Video</DialogTitle>
-              <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-primary/20 to-accent/20">
+              <div className="relative w-full aspect-video bg-black/40 rounded-2xl overflow-hidden shadow-2xl border border-border/40">
+                <div className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-primary/5 to-accent/5">
                   <div className="text-center space-y-4">
-                    <div className="w-20 h-20 mx-auto rounded-full bg-primary/20 flex items-center justify-center">
+                    <div className="w-24 h-24 mx-auto rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center backdrop-blur-md">
                       <svg
-                        className="w-10 h-10 text-primary ml-1"
+                        className="w-12 h-12 text-primary ml-1.5"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
-                    <p className="text-muted-foreground text-lg">
-                      Video coming soon
-                    </p>
-                    <p className="text-sm text-muted-foreground/70">
-                      Replace this placeholder with your YouTube embed
+                    <h3 className="text-xl font-bold text-foreground">Video Demo Coming Soon</h3>
+                    <p className="text-muted-foreground">
+                      Experience the power of local AI note-taking.
                     </p>
                   </div>
                 </div>
-                {/* Uncomment and replace with your YouTube video embed when ready:
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src="YOUR_YOUTUBE_EMBED_URL"
-                  title="Demo Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-                */}
               </div>
             </DialogContent>
           </Dialog>
