@@ -52,22 +52,21 @@ export function Features() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, i) => (
             <CardHoverAnimation
               key={i}
-              className="relative p-8 rounded-2xl border border-border-light bg-linear-to-br from-card via-card to-card/50 hover:border-primary/40 transition-all duration-500 group overflow-hidden"
+              className="relative p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/50 transition-all duration-500 group overflow-hidden"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -mr-20 -mt-20" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl bg-linear-to-br from-primary/30 to-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-7 h-7 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 border border-primary/20">
+                  <feature.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 leading-tight">
+                <h3 className="text-xl font-bold mb-3 tracking-tight">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </div>

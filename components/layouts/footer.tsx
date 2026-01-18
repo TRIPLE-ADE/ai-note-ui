@@ -58,6 +58,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="#faq"
+                  className="hover:text-foreground hover:translate-x-1 transition-all duration-300 inline-block"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={PLAY_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"

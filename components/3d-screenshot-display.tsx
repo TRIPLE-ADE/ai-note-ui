@@ -24,8 +24,12 @@ export function Screenshot3D({
     const container = containerRef.current;
     if (!container) return;
 
+    let rect = container.getBoundingClientRect();
+    const updateRect = () => {
+      rect = container.getBoundingClientRect();
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
       const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
 
@@ -78,6 +82,8 @@ export function Screenshot3D({
 
     container.addEventListener("mousemove", handleMouseMove);
     container.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("resize", updateRect);
+    window.addEventListener("scroll", updateRect, { passive: true });
 
     // Initial animation
     const ctx = gsap.context(() => {
@@ -96,6 +102,8 @@ export function Screenshot3D({
     return () => {
       container.removeEventListener("mousemove", handleMouseMove);
       container.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", updateRect);
+      window.removeEventListener("scroll", updateRect);
       ctx.revert();
     };
   }, []);
@@ -103,7 +111,7 @@ export function Screenshot3D({
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[500px] sm:h-[600px] perspective-1000"
+      className="relative w-full h-[750px] sm:h-[850px] perspective-1000"
       style={{ perspective: "1000px" }}
     >
       <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-accent/10 to-primary/20 rounded-3xl blur-3xl opacity-50" />
@@ -111,7 +119,7 @@ export function Screenshot3D({
       <div className="relative w-full h-full flex items-center justify-center gap-8 sm:gap-12">
         <div
           ref={image1Ref}
-          className="relative w-[280px] sm:w-[320px] h-[500px] sm:h-[600px] transform-style-preserve-3d"
+          className="relative w-[280px] sm:w-[320px] h-[675px] sm:h-[771px] transform-style-preserve-3d"
           style={{
             transformStyle: "preserve-3d",
           }}
@@ -129,7 +137,7 @@ export function Screenshot3D({
 
         <div
           ref={image2Ref}
-          className="relative w-[280px] sm:w-[320px] h-[500px] sm:h-[600px] transform-style-preserve-3d"
+          className="relative w-[280px] sm:w-[320px] h-[675px] sm:h-[771px] transform-style-preserve-3d"
           style={{
             transformStyle: "preserve-3d",
           }}
