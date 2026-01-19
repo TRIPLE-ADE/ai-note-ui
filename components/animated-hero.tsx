@@ -14,7 +14,7 @@ import {
 import { Screenshot3D } from "@/components/3d-screenshot-display";
 
 const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.tripletech.ainote";
+  "https://play.google.com/store/apps/details?id=com.tripletech.testing";
 
 export function AnimatedHero() {
   const containerRef = useRef(null);

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollAnimatedSection } from "@/components/scroll-animated-section";
 
 const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.tripletech.ainote";
+  "https://play.google.com/store/apps/details?id=com.tripletech.testing";
 
 export function EarlyAccessCTA() {
   return (
