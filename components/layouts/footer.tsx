@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.tripletech.ainote";
+  "https://play.google.com/store/apps/details?id=com.tripletech.testing";
 
 export function Footer() {
   return (
