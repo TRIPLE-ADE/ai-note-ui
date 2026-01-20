@@ -17,23 +17,29 @@ export const metadata: Metadata = {
   title: "Private AI Note - Offline AI-Powered Note Taking",
   description:
     "Powerful on-device AI for smarter thinking. Generate, summarize, chat with your notes—all offline, all private.",
-  generator: "v0.app",
   icons: {
-    icon: [
+    icon: "/assets/logo.png",
+    apple: "/assets/logo.png",
+  },
+  openGraph: {
+    title: "Private AI Note - Offline AI-Powered Note Taking",
+    description:
+      "Powerful on-device AI for smarter thinking. Generate, summarize, chat with your notes—all offline, all private.",
+    images: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/assets/featured-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Private AI Note",
       },
     ],
-    apple: "/apple-icon.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Private AI Note - Offline AI-Powered Note Taking",
+    description:
+      "Powerful on-device AI for smarter thinking. Generate, summarize, chat with your notes—all offline, all private.",
+    images: ["/assets/featured-image.png"],
   },
 };
 
